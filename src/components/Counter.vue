@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h1>Hello there</h1>
-        <h3>ETA for {{this.$store.getters.getName}}'s birthday</h3>
+        <h1>Hello there,</h1>
+        <h1 class="eta-title">ETA for {{this.$store.getters.getName}}'s birthday:</h1>
         <countdown :time="calculatedTime">
-            <template slot-scope="props">Time Remaining：{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }}
-                minutes, {{ props.seconds }} seconds.
+            <template slot-scope="props"><span class="counter-title">{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }}
+                minutes, {{ props.seconds }} seconds</span>
             </template>
         </countdown>
         <iframe width="1" height="1" src="https://www.youtube.com/embed/jA1kX-ZqUME?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
     </div>
 </template>
 
@@ -33,5 +32,11 @@
 </script>
 
 <style scoped>
+    .eta-title {
+        font-size: 50px;
+    }
+    .counter-title {
+        font-size: 30px;
+    }
 
 </style>

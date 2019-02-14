@@ -1,7 +1,8 @@
 <template>
     <div id="app">
-        <router-view></router-view>
-
+        <transition name="router-anim" enter-active-class="animated fadeIn">
+            <router-view></router-view>
+        </transition>
     </div>
 
 </template>
