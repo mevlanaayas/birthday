@@ -1,44 +1,44 @@
 <template>
     <div>
-        <el-row>
-            <transition enter-active-class="animated fadeIn">
-                <el-col :xs="24" :md="12">
+        <el-form ref="form" label-width="100px">
 
+            <el-form-item label="Name">
+                <el-input
+                        placeholder="enter a name"
+                        v-model="username">
+                    <i slot="prefix" class="fas fa-user el-input__icon"></i>
+                </el-input>
+            </el-form-item>
 
-                    <el-form ref="form" label-width="150px">
+            <el-form-item>
+                <el-date-picker
+                        v-model="birthDay"
+                        type="date"
+                        :picker-options="pickerOptions"
+                        placeholder="Pick a birth day">
+                </el-date-picker>
+            </el-form-item>
 
+            <el-form-item>
+                <el-button type="primary" @click="goToHome">Add</el-button>
+            </el-form-item>
 
-                        <el-form-item label="Username">
-                            <el-input
-                                    placeholder="Username"
-                                    v-model="username">
-                                <i slot="prefix" class="fas fa-user el-input__icon"></i>
-                            </el-input>
-                        </el-form-item>
-
-                        <el-form-item>
-                            <el-date-picker
-                                    v-model="birthDay"
-                                    type="date"
-                                    placeholder="Pick a birth day">
-                            </el-date-picker>
-                        </el-form-item>
-
-                        <el-form-item>
-                            <el-button type="primary" @click="goToHome">Add</el-button>
-                        </el-form-item>
-
-
-                    </el-form>
-                </el-col>
-            </transition>
-        </el-row>
+        </el-form>
     </div>
 </template>
 
 <script>
     export default {
         name: "RegisterView",
+        data: function ()  {
+            return {
+                pickerOptions: {
+                    disabledDate(time) {
+                        return time.getTime() < Date.now();
+                    },
+                },
+            }
+        },
         computed: {
             username: {
                 get() {
@@ -59,7 +59,7 @@
         },
         methods: {
             goToHome() {
-                this.$router.push("/")
+                this.$router.push("/home")
             }
         }
     }

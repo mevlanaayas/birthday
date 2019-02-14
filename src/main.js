@@ -9,10 +9,10 @@ import './plugins/element.js'
 
 Vue.component(VueCountdown.name, VueCountdown);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   store,
   router,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
