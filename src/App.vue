@@ -18,8 +18,10 @@
             changeTheme() {
                 if(document.body.className === 'dark') {
                     document.body.className = 'white';
+                    localStorage.setItem("theme", "white")
                 }else {
                     document.body.className = 'dark';
+                    localStorage.setItem("theme", "dark")
                 }
             }
         }

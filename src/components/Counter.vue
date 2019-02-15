@@ -7,7 +7,8 @@
                 minutes, {{ props.seconds }} seconds</span>
             </template>
         </countdown>
-        <iframe width="1" height="1" src="https://www.youtube.com/embed/jA1kX-ZqUME?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe v-if="mevlana === 'white'" width="1" height="1" src="https://www.youtube.com/embed/jA1kX-ZqUME?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe v-if="mevlana === 'dark'" width="1" height="1" src="https://www.youtube.com/embed/FLgYVOTKrO8?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </template>
 
@@ -18,6 +19,9 @@
         name: "Counter",
         components: {Countdown},
         computed: {
+            mevlana: function () {
+                return localStorage.getItem('theme')
+            },
             calculatedTime: function () {
                 let target = this.$store.getters.getDate;
                 let targetMM = target.getTime();
